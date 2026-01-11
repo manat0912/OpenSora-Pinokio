@@ -5,7 +5,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone git clone https://github.com/hpcaitech/Open-Sora.git app",
+          "git clone https://github.com/hpcaitech/Open-Sora.git app",
         ]
       }
     },
@@ -16,8 +16,12 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
+          "uv tool install hf",
+          "git xet install",
+          "hf download hpcai-tech/open-sora --repo-type=space",
           "uv pip install gradio devicetorch",
-          "uv pip install -r requirements.txt"
+          "uv pip install -r requirements.txt",
+          "uv pip install --force-reinstall av==12.1.0"
         ]
       }
     },
