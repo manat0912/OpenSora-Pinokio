@@ -5,7 +5,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/hpcaitech/Open-Sora.git app",
+          "git clone --branch opensora/v1.3 https://github.com/hpcaitech/Open-Sora.git app",
         ]
       }
     },
@@ -19,9 +19,11 @@ module.exports = {
           "uv tool install hf",
           "git xet install",
           "hf download hpcai-tech/open-sora --repo-type=space",
-          "uv pip install gradio devicetorch",
+          "uv pip install gradio==4.36.1 devicetorch timm rotary-embedding-torch beartype",
           "uv pip install -r requirements.txt",
-          "uv pip install --force-reinstall av==12.1.0"
+          "uv pip install --force-reinstall av==12.1.0",
+          "python ../patch_gradio.py",
+          "{{platform === 'win32' ? 'xcopy /e /y ..\\\\patches\\\\* .' : 'cp -r ../patches/* .'}}",
         ]
       }
     },
