@@ -19,7 +19,7 @@ module.exports = {
           "uv tool install hf",
           "git xet install",
           "hf download hpcai-tech/open-sora --repo-type=space",
-          "uv pip install gradio==4.36.1 devicetorch timm rotary-embedding-torch beartype",
+          "uv pip install gradio==4.36.1 devicetorch timm rotary-embedding-torch beartype spaces",
           "uv pip install -r requirements.txt",
           "uv pip install --force-reinstall av==12.1.0",
           "python ../patch_gradio.py",
